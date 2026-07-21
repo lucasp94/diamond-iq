@@ -8,707 +8,731 @@
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#F5EFE1;
-    --cream-line:#e7dcc2;
-    --field:#2F5D34;
-    --field-light:#3F7A46;
-    --dirt:#B4794C;
-    --dirt-dark:#8f5f39;
-    --navy:#16233B;
-    --navy-light:#233754;
-    --red:#C1272D;
-    --gold:#D4A017;
-    --chalk:#F7F3E8;
-    --ink:#1B1B18;
+    --cream:#F5EFE1; --cream-line:#e7dcc2;
+    --field:#2F5D34; --field-light:#3F7A46;
+    --dirt:#B4794C; --dirt-dark:#8f5f39;
+    --navy:#16233B; --navy-light:#233754;
+    --red:#C1272D; --gold:#D4A017;
+    --chalk:#F7F3E8; --ink:#1B1B18;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display{
-    font-family:'Teko',sans-serif;
-    font-weight:600;
-    letter-spacing:0.01em;
-    text-transform:uppercase;
-    line-height:0.95;
-  }
+  body{margin:0; background:var(--cream); color:var(--ink); font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.display{font-family:'Teko',sans-serif; font-weight:600; letter-spacing:.01em; text-transform:uppercase; line-height:.95;}
   .mono{font-family:'IBM Plex Mono',monospace;}
   a{color:inherit;}
 
-  /* ---------- HEADER ---------- */
-  header.top{
-    background:var(--navy);
-    color:var(--chalk);
-    padding:14px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky; top:0; z-index:50;
-    border-bottom:3px solid var(--gold);
-  }
-  header.top .brand{
-    display:flex; align-items:center; gap:10px;
-  }
-  header.top .brand .ball{
-    width:26px;height:26px;border-radius:50%;
-    background:var(--chalk);
-    position:relative;
-    flex:none;
-  }
-  header.top .brand .ball::before,
-  header.top .brand .ball::after{
-    content:"";
-    position:absolute; top:2px; bottom:2px; width:2px;
-    background:var(--red);
-    border-radius:2px;
-  }
+  header.top{background:var(--navy); color:var(--chalk); padding:14px 20px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:50; border-bottom:3px solid var(--gold); flex-wrap:wrap; gap:10px;}
+  header.top .brand{display:flex; align-items:center; gap:10px;}
+  header.top .brand .ball{width:26px;height:26px;border-radius:50%; background:var(--chalk); position:relative; flex:none;}
+  header.top .brand .ball::before, header.top .brand .ball::after{content:""; position:absolute; top:2px; bottom:2px; width:2px; background:var(--red); border-radius:2px;}
   header.top .brand .ball::before{left:7px; transform:rotate(18deg);}
   header.top .brand .ball::after{right:7px; transform:rotate(-18deg);}
-  header.top .brand span{
-    font-family:'Teko',sans-serif; font-size:26px; letter-spacing:0.03em;
-    text-transform:uppercase;
-  }
-  nav.tabs{
-    display:flex; gap:6px;
-  }
-  nav.tabs button{
-    background:transparent;
-    border:1px solid rgba(247,243,232,0.25);
-    color:var(--chalk);
-    font-family:'Teko',sans-serif;
-    font-size:18px;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    padding:7px 14px;
-    border-radius:3px;
-    cursor:pointer;
-    transition:background .15s, color .15s, border-color .15s;
-  }
+  header.top .brand span{font-family:'Teko',sans-serif; font-size:26px; letter-spacing:.03em; text-transform:uppercase;}
+  nav.tabs{display:flex; gap:6px; flex-wrap:wrap;}
+  nav.tabs button{background:transparent; border:1px solid rgba(247,243,232,.25); color:var(--chalk); font-family:'Teko',sans-serif; font-size:17px; letter-spacing:.03em; text-transform:uppercase; padding:7px 12px; border-radius:3px; cursor:pointer; transition:background .15s,color .15s,border-color .15s;}
   nav.tabs button:hover{border-color:var(--gold);}
-  nav.tabs button.active{
-    background:var(--gold);
-    color:var(--navy);
-    border-color:var(--gold);
-  }
-  nav.tabs button:focus-visible, button:focus-visible, .card:focus-visible{
-    outline:3px solid var(--gold); outline-offset:2px;
-  }
+  nav.tabs button.active{background:var(--gold); color:var(--navy); border-color:var(--gold);}
+  button:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    background:linear-gradient(180deg,var(--navy) 0%, var(--navy) 55%, var(--field) 55%, var(--field-light) 100%);
-    color:var(--chalk);
-    padding:56px 20px 30px;
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:32px;
-    align-items:center;
-  }
-  .hero .copy .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    color:var(--gold);
-    letter-spacing:0.12em;
-    font-size:12px;
-    text-transform:uppercase;
-    margin-bottom:10px;
-  }
-  .hero h1{font-size:clamp(40px,6vw,72px); margin:0 0 10px;}
-  .hero p.sub{
-    font-family:'Inter',sans-serif;
-    font-size:17px;
-    max-width:46ch;
-    color:#dfe6ee;
-    margin:0 0 22px;
-  }
+  .hero{background:linear-gradient(180deg,var(--navy) 0%,var(--navy) 55%,var(--field) 55%,var(--field-light) 100%); color:var(--chalk); padding:44px 20px 26px; display:grid; grid-template-columns:1.1fr 1fr; gap:28px; align-items:center;}
+  .hero .eyebrow{font-family:'IBM Plex Mono',monospace; color:var(--gold); letter-spacing:.12em; font-size:12px; text-transform:uppercase; margin-bottom:8px;}
+  .hero h1{font-size:clamp(34px,5.4vw,60px); margin:0 0 8px;}
+  .hero p.sub{font-size:16px; max-width:48ch; color:#dfe6ee; margin:0 0 18px;}
   .hero .ctaRow{display:flex; gap:12px; flex-wrap:wrap;}
-  .btn{
-    font-family:'Teko',sans-serif;
-    font-size:20px;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-    padding:11px 22px;
-    border-radius:3px;
-    border:2px solid transparent;
-    cursor:pointer;
-    transition:transform .12s ease;
-  }
+  .btn{font-family:'Teko',sans-serif; font-size:19px; letter-spacing:.03em; text-transform:uppercase; padding:10px 20px; border-radius:3px; border:2px solid transparent; cursor:pointer; transition:transform .12s;}
   .btn:hover{transform:translateY(-1px);}
   .btn.primary{background:var(--red); color:var(--chalk);}
   .btn.ghost{background:transparent; border-color:var(--chalk); color:var(--chalk);}
+  .btn.small{font-size:15px; padding:6px 12px;}
+  .fieldWrap svg{width:100%; height:auto; display:block; filter:drop-shadow(0 10px 20px rgba(0,0,0,.3));}
 
-  .fieldWrap{position:relative;}
-  svg#fieldSVG{width:100%; height:auto; display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,.35));}
-  .pos{cursor:pointer;}
-  .pos circle.dot{
-    fill:var(--chalk); stroke:var(--navy); stroke-width:3;
-    transition:fill .15s, r .15s;
-  }
-  .pos text{
-    font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600;
-    fill:var(--navy); text-anchor:middle; dominant-baseline:central;
-    pointer-events:none;
-  }
-  .pos.active circle.dot{fill:var(--gold); r:19;}
-  .pos:hover circle.dot{fill:var(--red);}
-  .pos:hover text{fill:var(--chalk);}
-
-  /* ---------- MAIN LAYOUT ---------- */
-  main{max-width:1080px; margin:0 auto; padding:36px 20px 80px;}
+  main{max-width:1120px; margin:0 auto; padding:30px 20px 80px;}
   .panel{display:none;}
   .panel.active{display:block; animation:fade .25s ease;}
   @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
-
-  .sectionHead{
-    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
-    border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:22px;
-    flex-wrap:wrap;
-  }
-  .sectionHead h2{font-size:34px; margin:0;}
+  .sectionHead{display:flex; align-items:baseline; justify-content:space-between; gap:16px; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:20px; flex-wrap:wrap;}
+  .sectionHead h2{font-size:32px; margin:0;}
   .sectionHead .tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6b6558; text-transform:uppercase; letter-spacing:.08em;}
+  p.lede{max-width:70ch; color:#3b372f; font-size:14.5px; line-height:1.55; margin:-10px 0 20px;}
 
-  /* ---- LEARN TAB ---- */
+  /* ---- POSITIONS TAB ---- */
   .learnGrid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-  .posCard{
-    background:var(--chalk);
-    border:1px solid var(--cream-line);
-    border-left:6px solid var(--field);
-    border-radius:4px;
-    padding:14px 16px;
-    cursor:pointer;
-    transition:box-shadow .15s, transform .15s;
-  }
+  .posCard{background:var(--chalk); border:1px solid var(--cream-line); border-left:6px solid var(--field); border-radius:4px; padding:14px 16px; cursor:pointer; transition:box-shadow .15s, transform .15s;}
   .posCard:hover{box-shadow:0 6px 16px rgba(0,0,0,.1); transform:translateY(-2px);}
   .posCard.active{border-left-color:var(--red); background:#fff;}
   .posCard .num{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--red); font-weight:600;}
-  .posCard h3{margin:2px 0 6px; font-size:26px;}
+  .posCard h3{margin:2px 0 6px; font-size:24px;}
   .posCard p{margin:0; font-size:13.5px; line-height:1.45; color:#3b372f;}
-  .learnDetail{
-    margin-top:22px; background:var(--navy); color:var(--chalk);
-    border-radius:6px; padding:22px 26px;
-  }
-  .learnDetail h3{color:var(--gold); font-size:28px; margin:0 0 6px;}
-  .learnDetail table{width:100%; border-collapse:collapse; margin-top:12px; font-size:14px;}
-  .learnDetail th{
-    text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px;
-    text-transform:uppercase; letter-spacing:.06em; color:var(--gold);
-    padding:6px 10px; border-bottom:1px solid rgba(247,243,232,.25);
-  }
-  .learnDetail td{padding:8px 10px; border-bottom:1px solid rgba(247,243,232,.12); vertical-align:top; line-height:1.4;}
 
-  /* ---- QUIZ TAB ---- */
-  .quizTop{display:flex; gap:14px; align-items:center; margin-bottom:18px; flex-wrap:wrap;}
-  .levelPicker{display:flex; gap:8px;}
-  .levelPicker button{
-    font-family:'Teko',sans-serif; font-size:17px; text-transform:uppercase;
-    padding:7px 14px; border-radius:20px; border:1.5px solid var(--ink);
-    background:transparent; cursor:pointer;
-  }
-  .levelPicker button.active{background:var(--field); color:var(--chalk); border-color:var(--field);}
-  .scoreBox{
-    margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:14px;
-    background:var(--navy); color:var(--chalk); padding:8px 14px; border-radius:4px;
-  }
+  /* ---- CONTROL PANEL (Explorer & Quiz) ---- */
+  .controls{background:var(--chalk); border:1px solid var(--cream-line); border-radius:8px; padding:18px 20px; margin-bottom:20px;}
+  .ctrlGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px;}
+  .ctrlField label{display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#6b6558; margin-bottom:5px;}
+  .ctrlField select{width:100%; padding:8px 10px; border-radius:4px; border:1.5px solid #cfc6ac; background:#fff; font-family:'Inter',sans-serif; font-size:14px;}
+  .ctrlActions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;}
+
+  .resultGrid{display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;}
+  @media(max-width:820px){.resultGrid{grid-template-columns:1fr;} .learnGrid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.learnGrid{grid-template-columns:1fr;}}
+
+  .schematicBox{background:var(--field-light); border-radius:8px; padding:14px; position:relative;}
+  .schematicBox svg{width:100%; height:auto; display:block; background:var(--field-light); border-radius:4px;}
+  .playSummary{background:var(--navy); color:var(--chalk); border-radius:6px; padding:12px 16px; margin-top:12px; font-size:13.5px; line-height:1.5;}
+  .playSummary b{color:var(--gold);}
+
+  .respTable{width:100%; border-collapse:collapse; font-size:13.5px;}
+  .respTable th{text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:#6b6558; padding:6px 8px; border-bottom:2px solid var(--ink);}
+  .respTable td{padding:8px 8px; border-bottom:1px solid var(--cream-line); vertical-align:top; line-height:1.4;}
+  .respTable tr.primaryRow td{background:#fff8e6; font-weight:600;}
+  .posTag{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; background:var(--field); color:var(--chalk); padding:2px 7px; border-radius:3px;}
+
+  /* ---- QUIZ ---- */
+  .quizTop{display:flex; gap:14px; align-items:center; margin-bottom:16px; flex-wrap:wrap;}
+  .scoreBox{margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:14px; background:var(--navy); color:var(--chalk); padding:8px 14px; border-radius:4px;}
   .scoreBox b{color:var(--gold);}
-
-  .clipboard{
-    background:var(--chalk);
-    border-radius:8px;
-    border:1px solid var(--cream-line);
-    box-shadow:0 10px 0 -4px rgba(0,0,0,.05), 0 18px 30px rgba(0,0,0,.08);
-    padding:26px 26px 22px;
-    position:relative;
-  }
-  .clipboard::before{
-    content:""; position:absolute; top:-11px; left:50%; transform:translateX(-50%);
-    width:80px; height:20px; background:var(--dirt-dark); border-radius:6px;
-  }
-  .situationTag{
-    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px;
-    background:var(--gold); color:var(--navy); padding:3px 10px; border-radius:12px;
-    margin-bottom:12px; text-transform:uppercase; letter-spacing:.04em;
-  }
-  .qText{font-size:20px; font-weight:600; line-height:1.4; margin:0 0 18px; font-family:'Inter',sans-serif;}
-  .options{display:grid; gap:10px;}
-  .opt{
-    text-align:left; padding:12px 14px; border-radius:5px; border:1.5px solid #cfc6ac;
-    background:#fff; cursor:pointer; font-family:'Inter',sans-serif; font-size:15px;
-    transition:border-color .15s, background .15s;
-  }
+  .clipboard{background:var(--chalk); border-radius:8px; border:1px solid var(--cream-line); box-shadow:0 18px 30px rgba(0,0,0,.08); padding:24px 24px 20px; position:relative;}
+  .clipboard::before{content:""; position:absolute; top:-11px; left:50%; transform:translateX(-50%); width:80px; height:20px; background:var(--dirt-dark); border-radius:6px;}
+  .situationTag{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11.5px; background:var(--gold); color:var(--navy); padding:3px 10px; border-radius:12px; margin:2px 6px 2px 0; text-transform:uppercase; letter-spacing:.03em;}
+  .qText{font-size:19px; font-weight:600; line-height:1.4; margin:14px 0 16px;}
+  .options{display:grid; gap:9px;}
+  .opt{text-align:left; padding:11px 13px; border-radius:5px; border:1.5px solid #cfc6ac; background:#fff; cursor:pointer; font-size:14.5px; transition:border-color .15s, background .15s;}
   .opt:hover{border-color:var(--field);}
   .opt.correct{background:#e4f3e6; border-color:var(--field); font-weight:600;}
   .opt.wrong{background:#fbe6e6; border-color:var(--red);}
   .opt[disabled]{cursor:default;}
-  .explain{
-    margin-top:16px; padding:14px 16px; background:#fff8e6; border-left:4px solid var(--gold);
-    border-radius:3px; font-size:14px; line-height:1.5; display:none;
-  }
+  .explain{margin-top:14px; padding:12px 14px; background:#fff8e6; border-left:4px solid var(--gold); border-radius:3px; font-size:13.5px; line-height:1.5; display:none;}
   .explain.show{display:block;}
-  .quizFooter{display:flex; justify-content:space-between; align-items:center; margin-top:18px;}
-  .quizFooter .progress{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6b6558;}
+  .quizFooter{display:flex; justify-content:space-between; align-items:center; margin-top:16px; flex-wrap:wrap; gap:10px;}
+  .progress{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6b6558;}
 
-  /* ---- FLASHCARD TAB ---- */
-  .fcWrap{display:flex; flex-direction:column; align-items:center; gap:18px;}
-  .fcCard{
-    width:min(560px,100%); aspect-ratio:16/9; perspective:1200px; cursor:pointer;
-  }
-  .fcInner{
-    position:relative; width:100%; height:100%; transition:transform .5s;
-    transform-style:preserve-3d;
-  }
-  .fcCard.flipped .fcInner{transform:rotateY(180deg);}
-  .fcFace{
-    position:absolute; inset:0; backface-visibility:hidden;
-    border-radius:10px; display:flex; align-items:center; justify-content:center;
-    text-align:center; padding:26px; font-size:18px; line-height:1.4;
-  }
-  .fcFront{background:var(--field); color:var(--chalk); font-weight:600; font-size:20px;}
-  .fcBack{background:var(--chalk); border:2px solid var(--field); transform:rotateY(180deg); font-size:15.5px;}
-  .fcHint{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6b6558; text-transform:uppercase; letter-spacing:.06em;}
-  .fcNav{display:flex; gap:12px; align-items:center;}
-  .fcNav .btn{padding:8px 18px; font-size:16px;}
-  .fcCount{font-family:'IBM Plex Mono',monospace; font-size:13px;}
-
-  footer{
-    text-align:center; padding:26px; font-family:'IBM Plex Mono',monospace;
-    font-size:12px; color:#8a8371; border-top:1px solid var(--cream-line);
-  }
-
-  @media (max-width:820px){
-    .hero{grid-template-columns:1fr; padding-top:40px;}
-    .learnGrid{grid-template-columns:1fr 1fr;}
-    header.top{flex-direction:column; gap:10px; align-items:flex-start;}
-    nav.tabs{flex-wrap:wrap;}
-  }
-  @media (max-width:520px){
-    .learnGrid{grid-template-columns:1fr;}
-    .qText{font-size:18px;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-  }
+  footer{text-align:center; padding:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8a8371; border-top:1px solid var(--cream-line);}
 </style>
 </head>
 <body>
 
 <header class="top">
-  <div class="brand">
-    <div class="ball"></div>
-    <span>Diamond IQ</span>
-  </div>
+  <div class="brand"><div class="ball"></div><span>Diamond IQ</span></div>
   <nav class="tabs">
-    <button data-panel="learn" class="active">Learn</button>
-    <button data-panel="quiz">Quiz</button>
-    <button data-panel="flash">Flashcards</button>
+    <button data-panel="positions" class="active">Positions</button>
+    <button data-panel="explorer">Explorer</button>
+    <button data-panel="quizpos">Quiz: By Position</button>
+    <button data-panel="quizsit">Quiz: By Situation</button>
   </nav>
 </header>
 
 <section class="hero">
   <div class="copy">
-    <div class="eyebrow">Before the pitch, know your job</div>
+    <div class="eyebrow">3,744 situations. One diamond.</div>
     <h1>Know your spot<br>before it happens.</h1>
-    <p class="sub">A pick-your-position field guide for young players. Learn what every fielder does in every situation — then prove it in the quiz.</p>
+    <p class="sub">Every out count, every runner combination, every place the ball can go, ground or air, close game or not, fast runner or slow — the Explorer builds the correct defensive assignment for all nine spots, live, with a diagram.</p>
     <div class="ctaRow">
-      <button class="btn primary" onclick="showPanel('quiz')">Start the quiz</button>
-      <button class="btn ghost" onclick="showPanel('learn')">Browse positions</button>
+      <button class="btn primary" onclick="showPanel('explorer')">Open the Explorer</button>
+      <button class="btn ghost" onclick="showPanel('quizsit')">Start a quiz</button>
     </div>
   </div>
-  <div class="fieldWrap">
-    <svg id="fieldSVG" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg">
-      <!-- outfield grass -->
-      <rect x="0" y="0" width="700" height="440" fill="#3F7A46"/>
-      <!-- infield dirt diamond -->
-      <path d="M350 400 L520 260 L350 130 L180 260 Z" fill="#B4794C" stroke="#8f5f39" stroke-width="2"/>
-      <!-- infield grass diamond -->
-      <path d="M350 360 L470 260 L350 175 L230 260 Z" fill="#3F7A46" stroke="#2F5D34" stroke-width="2"/>
-      <!-- baselines -->
-      <line x1="350" y1="400" x2="520" y2="260" stroke="#F7F3E8" stroke-width="2"/>
-      <line x1="350" y1="400" x2="180" y2="260" stroke="#F7F3E8" stroke-width="2"/>
-      <!-- foul lines to outfield -->
-      <line x1="350" y1="400" x2="640" y2="20" stroke="#F7F3E8" stroke-width="2"/>
-      <line x1="350" y1="400" x2="60" y2="20" stroke="#F7F3E8" stroke-width="2"/>
-      <!-- bases -->
-      <rect x="343" y="393" width="14" height="14" fill="#F7F3E8" transform="rotate(45 350 400)"/>
-      <rect x="513" y="253" width="14" height="14" fill="#F7F3E8"/>
-      <rect x="343" y="123" width="14" height="14" fill="#F7F3E8"/>
-      <rect x="173" y="253" width="14" height="14" fill="#F7F3E8"/>
-      <!-- mound -->
-      <circle cx="350" cy="270" r="14" fill="#B4794C" stroke="#8f5f39" stroke-width="2"/>
-
-      <!-- position markers: g.pos data-id -->
-      <g class="pos" data-id="1"><circle class="dot" cx="350" cy="272" r="17"/><text x="350" y="272">P</text></g>
-      <g class="pos" data-id="2"><circle class="dot" cx="350" cy="412" r="17"/><text x="350" y="412">C</text></g>
-      <g class="pos" data-id="3"><circle class="dot" cx="460" cy="235" r="17"/><text x="460" y="235">1B</text></g>
-      <g class="pos" data-id="4"><circle class="dot" cx="400" cy="175" r="17"/><text x="400" y="175">2B</text></g>
-      <g class="pos" data-id="5"><circle class="dot" cx="240" cy="235" r="17"/><text x="240" y="235">3B</text></g>
-      <g class="pos" data-id="6"><circle class="dot" cx="300" cy="175" r="17"/><text x="300" y="175">SS</text></g>
-      <g class="pos" data-id="7"><circle class="dot" cx="150" cy="95" r="17"/><text x="150" y="95">LF</text></g>
-      <g class="pos" data-id="8"><circle class="dot" cx="350" cy="55" r="17"/><text x="350" y="55">CF</text></g>
-      <g class="pos" data-id="9"><circle class="dot" cx="550" cy="95" r="17"/><text x="550" y="95">RF</text></g>
-    </svg>
-  </div>
+  <div class="fieldWrap"><svg viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg">
+    <rect width="700" height="440" fill="#3F7A46"/>
+    <path d="M350 400 L520 260 L350 130 L180 260 Z" fill="#B4794C" stroke="#8f5f39" stroke-width="2"/>
+    <path d="M350 360 L470 260 L350 175 L230 260 Z" fill="#3F7A46" stroke="#2F5D34" stroke-width="2"/>
+    <line x1="350" y1="400" x2="520" y2="260" stroke="#F7F3E8" stroke-width="2"/>
+    <line x1="350" y1="400" x2="180" y2="260" stroke="#F7F3E8" stroke-width="2"/>
+    <line x1="350" y1="400" x2="640" y2="20" stroke="#F7F3E8" stroke-width="2"/>
+    <line x1="350" y1="400" x2="60" y2="20" stroke="#F7F3E8" stroke-width="2"/>
+    <rect x="343" y="393" width="14" height="14" fill="#F7F3E8" transform="rotate(45 350 400)"/>
+    <rect x="513" y="253" width="14" height="14" fill="#F7F3E8"/>
+    <rect x="343" y="123" width="14" height="14" fill="#F7F3E8"/>
+    <rect x="173" y="253" width="14" height="14" fill="#F7F3E8"/>
+    <circle cx="350" cy="270" r="14" fill="#B4794C" stroke="#8f5f39" stroke-width="2"/>
+    <g><circle cx="350" cy="272" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="350" y="277" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" fill="#16233B">P</text></g>
+    <g><circle cx="350" cy="412" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="350" y="417" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" fill="#16233B">C</text></g>
+    <g><circle cx="460" cy="235" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="460" y="240" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">1B</text></g>
+    <g><circle cx="400" cy="175" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="400" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">2B</text></g>
+    <g><circle cx="240" cy="235" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="240" y="240" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">3B</text></g>
+    <g><circle cx="300" cy="175" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="300" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">SS</text></g>
+    <g><circle cx="150" cy="95" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="150" y="100" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">LF</text></g>
+    <g><circle cx="350" cy="55" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="350" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">CF</text></g>
+    <g><circle cx="550" cy="95" r="17" fill="#F7F3E8" stroke="#16233B" stroke-width="3"/><text x="550" y="100" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#16233B">RF</text></g>
+  </svg></div>
 </section>
 
 <main>
 
-  <!-- ============ LEARN PANEL ============ -->
-  <section id="panel-learn" class="panel active">
-    <div class="sectionHead">
-      <h2>Nine spots, nine jobs</h2>
-      <span class="tag">Tap a position</span>
-    </div>
+  <!-- ============ POSITIONS PANEL ============ -->
+  <section id="panel-positions" class="panel active">
+    <div class="sectionHead"><h2>Nine spots, nine jobs</h2><span class="tag">Overview</span></div>
+    <p class="lede">The general job description for each position. For the exact call in a specific situation — this out count, these runners, this exact spot the ball was hit — use the Explorer tab, which covers every combination.</p>
     <div class="learnGrid" id="learnGrid"></div>
-    <div class="learnDetail" id="learnDetail">
-      <span class="mono" style="color:var(--gold); font-size:12px; text-transform:uppercase;">Select a position above</span>
-      <h3 id="learnDetailName">—</h3>
-      <p id="learnDetailBase" style="margin:0;"></p>
-      <table id="learnDetailTable"><tbody></tbody></table>
+  </section>
+
+  <!-- ============ EXPLORER PANEL ============ -->
+  <section id="panel-explorer" class="panel">
+    <div class="sectionHead"><h2>Situation Explorer</h2><span class="tag" id="explorerCount">3,744 combinations</span></div>
+    <p class="lede">Set every variable below and the engine computes the correct call for all nine positions, plus a schematic showing the ball, the fielder, and the throw.</p>
+
+    <div class="controls">
+      <div class="ctrlGrid">
+        <div class="ctrlField"><label>Outs</label><select id="ctrlOuts"></select></div>
+        <div class="ctrlField"><label>Runners on base</label><select id="ctrlRunners"></select></div>
+        <div class="ctrlField"><label>Ball hit to</label><select id="ctrlLoc"></select></div>
+        <div class="ctrlField"><label>Ball type</label><select id="ctrlBallType"></select></div>
+        <div class="ctrlField"><label>Game context</label><select id="ctrlContext"></select></div>
+        <div class="ctrlField"><label>Runner speed</label><select id="ctrlSpeed"></select></div>
+      </div>
+      <div class="ctrlActions">
+        <button class="btn primary small" onclick="renderExplorer()">Show this situation</button>
+        <button class="btn ghost small" style="border-color:var(--ink); color:var(--ink);" onclick="randomizeExplorer()">🎲 Random situation</button>
+      </div>
+    </div>
+
+    <div class="resultGrid">
+      <div class="schematicBox" id="schematicBox"></div>
+      <div>
+        <table class="respTable" id="respTable"><thead><tr><th>Pos</th><th>Responsibility</th></tr></thead><tbody></tbody></table>
+      </div>
     </div>
   </section>
 
-  <!-- ============ QUIZ PANEL ============ -->
-  <section id="panel-quiz" class="panel">
-    <div class="sectionHead">
-      <h2>Situation quiz</h2>
-      <span class="tag" id="quizTagCount"></span>
-    </div>
-    <div class="quizTop">
-      <div class="levelPicker" id="levelPicker">
-        <button data-level="rookie" class="active">Rookie</button>
-        <button data-level="junior">Junior</button>
-        <button data-level="allstar">All-Star</button>
+  <!-- ============ QUIZ: BY POSITION ============ -->
+  <section id="panel-quizpos" class="panel">
+    <div class="sectionHead"><h2>Quiz — By Position</h2><span class="tag">Random situations, one job</span></div>
+    <p class="lede">Pick your position. You'll see a random situation and answer what YOUR job is — whether the ball's hit to you or not.</p>
+    <div class="controls">
+      <div class="ctrlGrid">
+        <div class="ctrlField"><label>Position</label><select id="qposPosition"></select></div>
       </div>
-      <div class="scoreBox">Score: <b id="scoreVal">0</b> / <span id="scoreTotal">0</span></div>
+      <div class="ctrlActions"><button class="btn primary small" onclick="startPosQuiz()">Start / restart quiz</button></div>
     </div>
+    <div class="quizTop"><div class="scoreBox">Score: <b id="posScoreVal">0</b> / <span id="posScoreTotal">0</span></div></div>
     <div class="clipboard">
-      <div class="situationTag" id="qSituation">Situation</div>
-      <p class="qText" id="qText">Question</p>
-      <div class="options" id="qOptions"></div>
-      <div class="explain" id="qExplain"></div>
-      <div class="quizFooter">
-        <span class="progress" id="qProgress"></span>
-        <button class="btn primary" id="nextBtn" style="display:none;" onclick="nextQuestion()">Next situation →</button>
+      <div id="posSituationTags"></div>
+      <p class="qText" id="posQText">Pick a position above and click Start.</p>
+      <div class="options" id="posOptions"></div>
+      <div class="explain" id="posExplain"></div>
+      <div class="quizFooter"><span class="progress" id="posProgress"></span>
+        <button class="btn primary" id="posNextBtn" style="display:none;" onclick="nextPosQuestion()">Next situation →</button>
       </div>
     </div>
   </section>
 
-  <!-- ============ FLASHCARD PANEL ============ -->
-  <section id="panel-flash" class="panel">
-    <div class="sectionHead">
-      <h2>Flashcards</h2>
-      <span class="tag">Tap card to flip</span>
-    </div>
-    <div class="fcWrap">
-      <div class="fcCard" id="fcCard" onclick="flipCard()">
-        <div class="fcInner">
-          <div class="fcFace fcFront">
-            <div>
-              <div class="fcHint" style="color:#cfe8d2; margin-bottom:10px;">Situation</div>
-              <div id="fcFrontText">—</div>
-            </div>
-          </div>
-          <div class="fcFace fcBack">
-            <div>
-              <div class="fcHint" style="margin-bottom:10px;">Your job</div>
-              <div id="fcBackText">—</div>
-            </div>
-          </div>
+  <!-- ============ QUIZ: BY SITUATION ============ -->
+  <section id="panel-quizsit" class="panel">
+    <div class="sectionHead"><h2>Quiz — By Situation</h2><span class="tag">Full situational awareness</span></div>
+    <p class="lede">A full random situation is dealt. Questions rotate: who fields it, where the throw goes, and how the infield/outfield should be playing.</p>
+    <div class="quizTop"><div class="scoreBox">Score: <b id="sitScoreVal">0</b> / <span id="sitScoreTotal">0</span></div></div>
+    <div class="clipboard">
+      <div id="sitSituationTags"></div>
+      <p class="qText" id="sitQText">Click Start to deal the first situation.</p>
+      <div class="options" id="sitOptions"></div>
+      <div class="explain" id="sitExplain"></div>
+      <div class="quizFooter">
+        <span class="progress" id="sitProgress"></span>
+        <div style="display:flex; gap:10px;">
+          <button class="btn ghost small" style="border-color:var(--ink); color:var(--ink);" id="sitStartBtn" onclick="startSitQuiz()">Start</button>
+          <button class="btn primary" id="sitNextBtn" style="display:none;" onclick="nextSitQuestion()">Next situation →</button>
         </div>
-      </div>
-      <div class="fcNav">
-        <button class="btn ghost" style="border-color:var(--ink); color:var(--ink);" onclick="prevCard()">← Prev</button>
-        <span class="fcCount" id="fcCount">1 / 1</span>
-        <button class="btn primary" onclick="nextCard()">Next →</button>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>DIAMOND IQ — a study guide for young ballplayers. Works offline once loaded. No data leaves your device.</footer>
+<footer>DIAMOND IQ — every out/runner/location/type/context/speed combination is computed live from a rules engine, not a hand-typed list. Works offline once loaded. No data leaves your device.</footer>
 
 <script>
-/* ===================== DATA ===================== */
-const POSITIONS = [
-  {id:1, abbr:"P", name:"Pitcher", blurb:"Fields comebackers and bunts, covers 1st on anything to the right side, backs up 3rd and home.",
-    rows:[
-      ["0 outs, runner on 1st","Watch for the bunt, be ready to cover 3rd if the corner charges hard"],
-      ["1st & 3rd, less than 2 outs","Part of the special defense — may cut a throw home or hold the ball"],
-      ["2 outs","Simplify: cover 1st on anything hit to the right side"],
-      ["Runner on 3rd, ground ball hit","Sprint to cover home or back up the plate"]
-    ]},
-  {id:2, abbr:"C", name:"Catcher", blurb:"Controls the running game, blocks pitches in the dirt, fields bunts near the plate, covers home on every play there.",
-    rows:[
-      ["Runner on 3rd, close game","Sets up for a bunt/squeeze read"],
-      ["Runner on 1st, fast runner","Faster pop time becomes the priority"],
-      ["1st & 3rd, less than 2 outs","Calls the team's special defense (throw through, cut, or hold)"],
-      ["2 outs, runner on 2nd only","Less worry about a single scoring the runner — focus shifts to the batter"]
-    ]},
-  {id:3, abbr:"1B", name:"First Base", blurb:"Holds the runner on, covers 1st on nearly every ground ball, charges bunts down the line.",
-    rows:[
-      ["Runner on 1st, 0-1 outs","Holds the bag, limits range, until the ball is hit"],
-      ["Runner on 1st, 2 outs","Can play off the bag — pickoff matters less"],
-      ["Bunt situation","Charges hard, especially with a fast runner up"],
-      ["Ball hit to right field, runner scoring","Becomes the cutoff man for the throw home"]
-    ]},
-  {id:4, abbr:"2B", name:"Second Base", blurb:"Turns double plays from both directions, covers 2nd on steals, cuts throws from center/right field.",
-    rows:[
-      ["Runner on 1st, less than 2 outs","Cheats toward 2nd for a double play"],
-      ["Runner on 1st, 2 outs","Normal depth — just get the sure out"],
-      ["Ball hit to the CF/RF gap","Becomes the relay man"],
-      ["Left-handed pull hitter","Shifts toward the 1st base line"]
-    ]},
-  {id:5, abbr:"3B", name:"Third Base", blurb:"Guards the line late in close games, charges bunts hard, is central to 1st-and-3rd defense.",
-    rows:[
-      ["Runner on 3rd, 0-1 outs, close game","Plays in to cut down the run at the plate"],
-      ["Runner on 3rd, 2 outs, or big lead","Plays back to secure the out at 1st"],
-      ["Bunt threat","Crashes hard toward the plate"],
-      ["Power hitter, close game late","Guards the line for extra-base hits"]
-    ]},
-  {id:6, abbr:"SS", name:"Shortstop", blurb:"Turns double plays, shares 2nd base coverage with 2B, is the primary relay man from left field.",
-    rows:[
-      ["Runner on 1st, less than 2 outs","Cheats toward 2nd for a double play"],
-      ["Ball hit to left field","Goes out as the relay man"],
-      ["1st & 3rd","Often fakes the throw to freeze the runner at 3rd"],
-      ["Right-handed pull hitter","Shifts toward the 3rd base line"]
-    ]},
-  {id:7, abbr:"LF", name:"Left Field", blurb:"Backs up 3rd base, hits the cutoff man on throws home, covers the line and the gap.",
-    rows:[
-      ["Runner on 2nd/3rd, less than 2 outs, close game","Plays shallow, no-doubles depth, ready to throw a runner out"],
-      ["2 outs","Can play deeper — extra bases matter less than the out"],
-      ["Fly ball with a tagging runner","Charges the catch and gets rid of it fast"],
-      ["Big lead, power hitter up","Plays deep, concedes the single"]
-    ]},
-  {id:8, abbr:"CF", name:"Center Field", blurb:"Captain of the outfield, covers the most ground, backs up 2nd base on steals and pickoffs.",
-    rows:[
-      ["Runner on 1st, steal attempt","Sprints in to back up 2nd base"],
-      ["Runner on 2nd/3rd, close game","No-doubles depth, ready to throw through the cutoff"],
-      ["2 outs","Can play deeper — no force plays to worry about"],
-      ["Pull hitter","Shades toward the pull-side gap"]
-    ]},
-  {id:9, abbr:"RF", name:"Right Field", blurb:"Backs up 1st base on nearly every infield play, hits the cutoff on throws to 3rd and home.",
-    rows:[
-      ["Any ground ball to the infield","Breaks toward 1st to back up the throw"],
-      ["Runner on 1st, base hit likely","No-doubles depth, ready to throw to 3rd"],
-      ["2 outs","Can play deeper — backing up 1st matters less"],
-      ["Left-handed pull power hitter","Shifted toward the line, sometimes drastically"]
-    ]}
+/* ============================================================
+   THE DATABASE — parameters + per-location backup/relay table
+   ============================================================ */
+const OUTS = [0,1,2];
+const RUNNER_STATES = [
+  {id:'none',   label:'Bases empty',   bases:[]},
+  {id:'1st',    label:'Runner on 1st', bases:['1st']},
+  {id:'2nd',    label:'Runner on 2nd', bases:['2nd']},
+  {id:'3rd',    label:'Runner on 3rd', bases:['3rd']},
+  {id:'1st2nd', label:'1st & 2nd',     bases:['1st','2nd']},
+  {id:'1st3rd', label:'1st & 3rd',     bases:['1st','3rd']},
+  {id:'2nd3rd', label:'2nd & 3rd',     bases:['2nd','3rd']},
+  {id:'loaded', label:'Bases loaded',  bases:['1st','2nd','3rd']}
+];
+const BALL_TYPES = [{id:'ground',label:'On the ground'},{id:'air',label:'In the air'}];
+const CONTEXTS   = [{id:'close',label:'Close game / decisive inning'},{id:'noncrucial',label:'Big lead or non-decisive inning'}];
+const SPEEDS     = [{id:'fast',label:'Fast runner'},{id:'average',label:'Average runner'},{id:'slow',label:'Slow runner'}];
+
+const POS_LIST = ['P','C','1B','2B','3B','SS','LF','CF','RF'];
+const INFIELD  = ['1B','2B','3B','SS'];
+const OUTFIELD = ['LF','CF','RF'];
+const OF_LOCATIONS = ['lfLine','lcGap','lf','cf','rcGap','rf','rfLine'];
+
+// coordinates reused for both the field markers and the hit-location dot
+const COORDS = {
+  P:[350,272], C:[350,412], '1B':[460,235], '2B':[400,175], '3B':[240,235], SS:[300,175],
+  LF:[150,95], CF:[350,55], RF:[550,95]
+};
+const LOC_COORDS = {
+  lfLine:[95,115], lcGap:[220,68], lf:[150,95], cf:[350,55], rcGap:[480,68], rf:[550,95], rfLine:[605,115],
+  '3B':[240,235], SS:[300,175], '2B':[400,175], '1B':[460,235], P:[350,272], C:[350,412]
+};
+const BAG_COORDS = {Home:[350,400], '1st base':[520,260], '2nd base':[350,140], '3rd base':[180,260]};
+
+const HIT_LOCATIONS = [
+  {id:'lfLine', label:'Down the left field line', primary:'LF', notes:{
+    P:'Backs up 3rd base on the throw in.', C:'Covers home plate, alert for a play at the dish.',
+    '1B':'Holds first, no immediate action.', '2B':'Covers 2nd base.',
+    '3B':'Covers the bag; alert to be the trail man on a long relay.', SS:'Sprints out as the relay man.',
+    CF:'Rotates hard to back up left field.', RF:'Shifts toward center, covering the vacated ground.'}},
+  {id:'rfLine', label:'Down the right field line', primary:'RF', notes:{
+    P:'Backs up 3rd base / home on the throw in.', C:'Covers home plate.',
+    '1B':'Cuts to the relay lane out toward right field.', '2B':'Sprints out as the relay man.',
+    '3B':'Covers the bag, alert for the extra-base throw.', SS:'Covers 2nd base, reads the runner from 1st.',
+    LF:'Rotates over to cover center and the far gap.', CF:'Rotates hard to back up right field.'}},
+  {id:'rcGap', label:'Right-center gap', primary:'CF', notes:{
+    P:'Backs up 3rd base / home on the relay.', C:'Covers home plate.',
+    '1B':'Covers the bag.', '2B':'Sprints out as the relay man.',
+    '3B':'Covers the bag, watches the runner.', SS:'Covers 2nd base for a possible throw there.',
+    LF:'Rotates to cover the vacated center-field ground.', RF:'Backs up the gap from the other side.'}},
+  {id:'lcGap', label:'Left-center gap', primary:'CF', notes:{
+    P:'Backs up 3rd base / home on the relay.', C:'Covers home plate.',
+    '1B':'Covers the bag.', '2B':'Covers 2nd base for a possible throw there.',
+    '3B':'Covers the bag, watches the runner.', SS:'Sprints out as the relay man.',
+    LF:'Backs up the gap from the other side.', RF:'Rotates to cover the vacated center-field ground.'}},
+  {id:'lf', label:'Straightaway left field', primary:'LF', notes:{
+    P:'Backs up 3rd base on the throw in.', C:'Covers home plate.',
+    '1B':'Holds first base.', '2B':'Covers 2nd base.',
+    '3B':'Covers the bag, ready for the relay hand-off.', SS:'Sprints out as the relay man.',
+    CF:'Rotates to back up left field.', RF:'Holds depth, alert.'}},
+  {id:'cf', label:'Straightaway center field', primary:'CF', notes:{
+    P:'Backs up 3rd base / home on the relay.', C:'Covers home plate.',
+    '1B':'Holds first base.', '2B':'Sprints out as the relay man (or SS — whichever is open).',
+    '3B':'Covers the bag, watches the runner.', SS:'Covers 2nd base if 2B is the relay man.',
+    LF:'Rotates to back up center field.', RF:'Rotates to back up center field from the other side.'}},
+  {id:'rf', label:'Straightaway right field', primary:'RF', notes:{
+    P:'Backs up 3rd base / home on the throw in.', C:'Covers home plate.',
+    '1B':'Covers the bag.', '2B':'Sprints out as the relay man.',
+    '3B':'Covers the bag, watches the runner.', SS:'Covers 2nd base, reads the runner from 1st.',
+    LF:'Holds depth, alert.', CF:'Rotates to back up right field.'}},
+  {id:'3B', label:'Ground ball to third base', primary:'3B', notes:{
+    P:'Backs up first base, or covers home on a slow roller.', C:'Covers home plate.',
+    '1B':'Covers first base for the throw.', '2B':'Covers 2nd base for a possible double-play feed.',
+    SS:'Covers 2nd base or third depending on the throw.', LF:'Backs up 3rd base in case of a bad throw.',
+    CF:'Holds depth, alert.', RF:'Holds depth, alert.'}},
+  {id:'SS', label:'Ground ball to shortstop', primary:'SS', notes:{
+    P:'Backs up first base.', C:'Covers home plate.',
+    '1B':'Covers first base for the throw.', '2B':'Covers 2nd base for the double-play pivot.',
+    '3B':'Covers the bag, alert for a bunt-back throw.', LF:'Backs up the throw toward 2nd base.',
+    CF:'Backs up the throw toward 1st or 2nd base.', RF:'Holds depth, alert.'}},
+  {id:'2B', label:'Ground ball to second base', primary:'2B', notes:{
+    P:'Covers first base if the 1st baseman is pulled off the bag.', C:'Covers home plate.',
+    '1B':'Covers first base for the throw (or fields it, if 2B covers the bag instead).',
+    '3B':'Covers the bag, alert.', SS:'Covers 2nd base for the double-play pivot.',
+    LF:'Holds depth, alert.', CF:'Holds depth, alert.', RF:'Backs up the throw to first base.'}},
+  {id:'1B', label:'Ground ball to first base', primary:'1B', notes:{
+    P:'Covers first base since the 1st baseman fielded it away from the bag.', C:'Covers home plate.',
+    '2B':'Covers first base or 2nd depending on which is closer.', '3B':'Covers the bag, alert.',
+    SS:'Covers 2nd base for a possible double play.', LF:'Holds depth, alert.', CF:'Holds depth, alert.',
+    RF:'Backs up the throw to first base.'}},
+  {id:'P', label:'Comebacker / bunt to the pitcher', primary:'P', notes:{
+    C:'Covers home plate, alert for a bunt/squeeze read.', '1B':'Covers first base or charges, depending on the call.',
+    '2B':'Covers 2nd base.', '3B':'Covers the bag or charges the bunt, depending on the call.',
+    SS:'Covers 2nd or 3rd base depending on the play called.', LF:'Holds depth, alert.', CF:'Holds depth, alert.', RF:'Holds depth, alert.'}},
+  {id:'C', label:'Bunt / dropped ball at the plate', primary:'C', notes:{
+    P:'Covers home plate or backs up, depending on where the catcher goes.', '1B':'Charges in if the bunt is near the line.',
+    '2B':'Covers 2nd base.', '3B':'Charges in if the bunt is near the line.', SS:'Covers 2nd or 3rd base depending on runners.',
+    LF:'Holds deep position, alert.', CF:'Holds deep position, alert.', RF:'Holds deep position, alert.'}}
 ];
 
-const QUIZ = [
-  {level:"rookie", situation:"0 outs · Bases empty", q:"A ground ball is hit sharply to the shortstop. Where does the throw go?",
-    options:["1st base","2nd base","3rd base","Home"], correct:0,
-    explain:"With no runners on, every ground ball is a straightforward play to first base for the out."},
-  {level:"rookie", situation:"1 out · Runner on 1st", q:"The batter hits a routine grounder to the second baseman. What's the best play?",
-    options:["Throw home","Try to turn a double play at 2nd, then 1st","Hold the ball","Throw straight to 1st only"], correct:1,
-    explain:"With a runner on 1st and less than 2 outs, infielders play double-play depth and try to get two outs, not just one."},
-  {level:"rookie", situation:"2 outs · Runner on 2nd", q:"A ground ball goes to the third baseman. Where's the throw?",
-    options:["3rd base to tag the bag","Home plate","1st base — the sure out","2nd base"], correct:2,
-    explain:"With 2 outs, any out ends the inning, so the defense takes the easiest, highest-percentage out — first base."},
-  {level:"rookie", situation:"Any situation", q:"Which fielder's main job is to back up first base on almost every infield ground ball?",
-    options:["Left fielder","Center fielder","Right fielder","Catcher"], correct:2,
-    explain:"The right fielder has the shortest path to back up 1st and does it on nearly every play to the infield."},
-  {level:"rookie", situation:"Bunt situation", q:"Runner on 1st, the batter squares to bunt. Which two fielders usually charge hardest?",
-    options:["Shortstop and center fielder","1st baseman and 3rd baseman","Catcher and pitcher only","2nd baseman and right fielder"], correct:1,
-    explain:"The corner infielders (1B and 3B) crash toward the plate/mound on bunt situations to field the ball quickly."},
-  {level:"rookie", situation:"Fly ball, runner tagging", q:"A fly ball is hit to left field with a runner tagging from 3rd. What should the left fielder do first?",
-    options:["Wave to the crowd","Charge the catch and get rid of it fast","Wait to see if the runner goes","Run toward the infield"], correct:1,
-    explain:"Outfielders charge the catch on a potential tag situation so they can make a quick, strong throw."},
+/* ============================================================
+   THE ENGINE — computes the correct call for any combination
+   ============================================================ */
+function computePlay(outs, bases, hitLocId, ballType, context){
+  const isOF = OF_LOCATIONS.includes(hitLocId);
+  const hasThird = bases.includes('3rd'), hasSecond = bases.includes('2nd'), hasFirst = bases.includes('1st');
+  let targetLabel, description;
 
-  {level:"junior", situation:"1 out · Runner on 3rd · Close game", q:"Ground ball to the shortstop. Infield was playing 'in.' Where does the throw go?",
-    options:["1st base","Home plate to cut down the run","2nd base","Back to the pitcher"], correct:1,
-    explain:"Infield 'in' is set up specifically to throw out the runner trying to score from 3rd on a ground ball."},
-  {level:"junior", situation:"0 outs · Runner on 3rd · Big lead", q:"With a big lead, the infield usually plays…",
-    options:["In, to cut off the run at all costs","Back, taking the sure out at 1st","No defense at all","Halfway, no matter what"], correct:1,
-    explain:"When a run doesn't change the outcome much, defenses often concede it and just take the safer out at first."},
-  {level:"junior", situation:"1st & 3rd · Runner breaks for 2nd", q:"Runners on 1st and 3rd. The runner on 1st breaks for 2nd. What is the defense's biggest risk if they just throw straight through to 2nd?",
-    options:["Nothing, it's always safe","The runner on 3rd scores easily on the delayed read","The batter gets a walk","The pitcher is charged with a balk"], correct:1,
-    explain:"A straight throw to 2nd can let the runner on 3rd break for home behind it — that's why teams use cut plays and fakes in this exact situation."},
-  {level:"junior", situation:"Ball hit to left-center gap", q:"Who is the primary relay man on a ball hit into the left-center gap?",
-    options:["First baseman","Shortstop","Catcher","Right fielder"], correct:1,
-    explain:"The shortstop is the primary relay man on balls hit to left field and left-center."},
-  {level:"junior", situation:"Runner on 1st, fast runner, ball in play", q:"With a fast runner on base, how should infielders adjust their transfer and throw?",
-    options:["Slow down to be extra careful","Rush the transfer and get rid of it quickly","Always throw to 3rd instead","Ignore the runner completely"], correct:1,
-    explain:"Against a fast runner, infielders rush the glove-to-hand transfer since there's less margin for a slow throw."},
-  {level:"junior", situation:"2 outs · Runner on 2nd, no-doubles depth", q:"Why might an outfielder play deeper with 2 outs even with a runner in scoring position?",
-    options:["Because a force play matters more","Because preventing extra bases matters more than a close throw when any out ends the inning","Because the coach forgot the situation","There's no reason, depth never changes"], correct:1,
-    explain:"With 2 outs, there's no force/close-race-to-a-base pressure the same way — preventing the extra-base hit becomes the priority."},
+  if(ballType === 'air'){
+    if(!isOF){
+      targetLabel = 'Catch for the out';
+      description = (hasThird && outs < 2)
+        ? "Catch it — that's the out. Stay alert for a tag from 3rd; if he breaks early, the throw goes home."
+        : "Catch it — that's the out. No runner is threatening to advance.";
+    } else if(hasThird && outs < 2){
+      targetLabel = 'Home'; description = "Catch it, then be ready for a tag-up throw to home plate.";
+    } else if(hasSecond && outs < 2 && context === 'close'){
+      targetLabel = '3rd base'; description = "Catch it, then be ready for a tag-up throw to third base.";
+    } else {
+      targetLabel = 'Catch for the out'; description = "Catch it — routine out, nobody's tagging up in a way that changes the play.";
+    }
+  } else {
+    if(!isOF){
+      if(outs === 2){
+        targetLabel = '1st base'; description = "Two outs — simplify and take the sure out at first base.";
+      } else if(hasThird && context === 'close'){
+        targetLabel = 'Home'; description = "Infield is playing in — the throw goes home to cut down the run.";
+      } else if(hasFirst){
+        targetLabel = '2nd base'; description = "Go for the double play — throw to the force at second first, then relay to first.";
+      } else {
+        targetLabel = '1st base'; description = "Routine ground ball — throw to first base for the out.";
+      }
+    } else {
+      if(hasThird){
+        targetLabel = 'Home';
+        description = "Ball gets through for a hit — the run scores from third. The throw goes home"
+          + (context === 'close' ? " to try to hold every other runner too." : ", though with a big lead the defense may settle for hitting the cutoff man instead.");
+      } else if(hasSecond){
+        targetLabel = '3rd base'; description = "Base hit — the throw goes to third to keep the runner from second from taking the extra base.";
+      } else if(hasFirst){
+        targetLabel = '3rd base'; description = "Base hit — the throw goes toward third, or is cut, depending on how far the runner from first tries to advance.";
+      } else {
+        targetLabel = 'Cutoff man'; description = "Base hit — the outfielder hits the cutoff man; there's no runner to hold up.";
+      }
+    }
+  }
+  return {targetLabel, description};
+}
+function getInfieldDepth(outs, bases, context){
+  const hasThird = bases.includes('3rd'), hasFirst = bases.includes('1st');
+  if(hasThird && outs < 2) return context === 'close' ? 'In' : 'Halfway / Back';
+  if(hasFirst && outs < 2) return 'Double-play depth';
+  return 'Normal';
+}
+function getOutfieldDepth(outs, bases, context){
+  const hasSecond = bases.includes('2nd'), hasThird = bases.includes('3rd');
+  if((hasSecond || hasThird) && outs < 2 && context === 'close') return 'Shallow / no-doubles';
+  if(outs === 2) return 'Can play deeper';
+  return 'Normal';
+}
+function speedNote(speed){
+  if(speed==='fast') return "Fast runner — rush every transfer and throw; outfield plays a step shallower to shorten the throw home.";
+  if(speed==='slow') return "Slow runner — the defense can afford an extra beat and go for the more ambitious out if one's available.";
+  return "Average speed — standard mechanics, no special rush.";
+}
+function getPositionResponsibility(position, sit){
+  const loc = HIT_LOCATIONS.find(l => l.id === sit.locId);
+  const bases = RUNNER_STATES.find(r => r.id === sit.runnersId).bases;
+  const play = computePlay(sit.outs, bases, sit.locId, sit.ballType, sit.context);
+  if(loc.primary === position) return "You're fielding this ball. " + play.description;
+  let note = loc.notes[position] || 'Holds position, stays alert.';
+  let prefix = '';
+  if(INFIELD.includes(position)) prefix = getInfieldDepth(sit.outs, bases, sit.context) + ' depth — ';
+  else if(OUTFIELD.includes(position)) prefix = getOutfieldDepth(sit.outs, bases, sit.context) + ' — ';
+  return prefix + note;
+}
+function randomSituation(){
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  return {
+    outs: pick(OUTS),
+    runnersId: pick(RUNNER_STATES).id,
+    locId: pick(HIT_LOCATIONS).id,
+    ballType: pick(BALL_TYPES).id,
+    context: pick(CONTEXTS).id,
+    speed: pick(SPEEDS).id
+  };
+}
+function situationTagsHtml(sit){
+  const outsLbl = sit.outs + (sit.outs===1 ? ' out' : ' outs');
+  const runnersLbl = RUNNER_STATES.find(r=>r.id===sit.runnersId).label;
+  const locLbl = HIT_LOCATIONS.find(l=>l.id===sit.locId).label;
+  const ballLbl = BALL_TYPES.find(b=>b.id===sit.ballType).label;
+  const ctxLbl = CONTEXTS.find(c=>c.id===sit.context).label;
+  const spdLbl = SPEEDS.find(s=>s.id===sit.speed).label;
+  return [outsLbl, runnersLbl, locLbl, ballLbl, ctxLbl, spdLbl].map(t=>`<span class="situationTag">${t}</span>`).join('');
+}
 
-  {level:"allstar", situation:"1 out · Runner on 3rd", q:"What does 'infield halfway' mean, and when is it used?",
-    options:["Infielders stand exactly between in and back, and react to the type of ball hit","Infielders leave the field", "Only the shortstop moves in","It only applies with 2 outs"], correct:0,
-    explain:"Halfway depth is used with moderate score situations — infielders read the ball off the bat and go home on a hard-hit ball, or take the sure out at 1st on a slow roller."},
-  {level:"allstar", situation:"Wheel play · Runners on 1st & 2nd, expected bunt", q:"On a wheel play, who covers 3rd base?",
-    options:["The shortstop, since 3rd baseman crashes the bunt","The catcher","The center fielder","Nobody — 3rd is left open"], correct:0,
-    explain:"In a wheel play, both corner infielders crash the bunt, so the shortstop rotates over to cover 3rd to keep the force in play."},
-  {level:"allstar", situation:"Rundown", q:"In a rundown (pickle), what's the defense's main goal?",
-    options:["Throw the ball as many times as possible","Get the runner out in as few throws as possible, throwing ahead of the runner's path","Let the runner reach the base safely","Only the pitcher is allowed to make the tag"], correct:1,
-    explain:"Fewer throws means fewer chances for an error — always throw ahead of the runner's path, never at their back, and only once they've committed."},
-  {level:"allstar", situation:"Runner on 3rd · 1 out · Tie game, 7th inning", q:"A sharp ground ball is hit right at the third baseman, who was playing 'in.' What's the correct read?",
-    options:["Always go to 1st no matter what","Look the runner back to 3rd if there's no play at home, then get the sure out at 1st or 2nd", "Throw it into the stands","Hold the ball and do nothing"], correct:1,
-    explain:"Infielders playing in still read the play — if home isn't there, they look the runner back and take the available out rather than forcing a bad throw."},
-  {level:"allstar", situation:"Pull hitter, RH batter", q:"For a strong right-handed pull hitter, which fielders are most likely to shift?",
-    options:["Left fielder and 1st baseman only","Shortstop and 3rd baseman shade toward the left side, corner and CF adjust too","Catcher only","No one shifts, ever"], correct:1,
-    explain:"A right-handed pull hitter tends to hit to the left side, so the shortstop and third baseman shade that way, with the outfield shading similarly."},
-  {level:"allstar", situation:"Bases loaded · 1 out", q:"With bases loaded and 1 out, what's usually the most valuable play the infield can make?",
-    options:["A double play (any combination) to end the inning","Automatically throw home no matter what","Intentionally make an error","Nothing — just hold the ball"], correct:0,
-    explain:"With less than 2 outs and the bases loaded, a double play is hugely valuable since it erases two runners and often ends the threat entirely."}
-];
+/* ============================================================
+   SCHEMATIC DIAGRAM (animated SVG — stands in for video)
+   ============================================================ */
+function buildSchematic(sit){
+  const bases = RUNNER_STATES.find(r=>r.id===sit.runnersId).bases;
+  const loc = HIT_LOCATIONS.find(l=>l.id===sit.locId);
+  const play = computePlay(sit.outs, bases, sit.locId, sit.ballType, sit.context);
+  const inDepth = getInfieldDepth(sit.outs, bases, sit.context);
+  const ofDepth = getOutfieldDepth(sit.outs, bases, sit.context);
 
-/* ===================== TAB SWITCHING ===================== */
+  function nudged(pos){
+    let [x,y] = COORDS[pos];
+    if(INFIELD.includes(pos)){
+      if(inDepth==='In') y += 22;
+      else if(inDepth==='Double-play depth') y += 8;
+    } else if(OUTFIELD.includes(pos)){
+      if(ofDepth==='Shallow / no-doubles') y += 18;
+      else if(ofDepth==='Can play deeper') y -= 18;
+    }
+    return [x,y];
+  }
+
+  let markers = '';
+  POS_LIST.forEach(pos=>{
+    const [x,y] = nudged(pos);
+    const isPrimary = loc.primary === pos;
+    markers += `<g><circle cx="${x}" cy="${y}" r="16" fill="${isPrimary?'#D4A017':'#F7F3E8'}" stroke="#16233B" stroke-width="3"/>
+      <text x="${x}" y="${y+4}" text-anchor="middle" font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#16233B">${pos}</text></g>`;
+  });
+
+  let runnerDots = '';
+  const runnerBagXY = {'1st':[520,260],'2nd':[350,130],'3rd':[180,260]};
+  bases.forEach(b=>{ const [x,y]=runnerBagXY[b]; runnerDots += `<circle cx="${x}" cy="${y-22}" r="8" fill="#C1272D" stroke="#F7F3E8" stroke-width="2"/>`; });
+
+  const [hx,hy] = LOC_COORDS[sit.locId];
+  const ballAnim = `<circle id="ballDot" cx="350" cy="400" r="7" fill="#F7F3E8" stroke="#16233B" stroke-width="1.5">
+      <animate attributeName="cx" from="350" to="${hx}" dur="0.7s" begin="0.1s" fill="freeze"/>
+      <animate attributeName="cy" from="400" to="${hy}" dur="0.7s" begin="0.1s" fill="freeze"/>
+    </circle>`;
+
+  let throwLine = '';
+  if(BAG_COORDS[play.targetLabel]){
+    const [px,py] = nudged(loc.primary);
+    const [tx,ty] = BAG_COORDS[play.targetLabel];
+    const len = Math.hypot(tx-px, ty-py);
+    throwLine = `<line x1="${px}" y1="${py}" x2="${tx}" y2="${ty}" stroke="#C1272D" stroke-width="3" stroke-dasharray="${len}" stroke-dashoffset="${len}">
+        <animate attributeName="stroke-dashoffset" from="${len}" to="0" dur="0.5s" begin="0.9s" fill="freeze"/>
+      </line>
+      <circle cx="${tx}" cy="${ty}" r="5" fill="#C1272D" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" begin="1.35s" dur="0.1s" fill="freeze"/>
+      </circle>`;
+  }
+
+  return `<svg viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg">
+    <rect width="700" height="440" fill="#3F7A46"/>
+    <path d="M350 400 L520 260 L350 130 L180 260 Z" fill="#B4794C" stroke="#8f5f39" stroke-width="2"/>
+    <path d="M350 360 L470 260 L350 175 L230 260 Z" fill="#3F7A46" stroke="#2F5D34" stroke-width="2"/>
+    <line x1="350" y1="400" x2="520" y2="260" stroke="#F7F3E8" stroke-width="2"/>
+    <line x1="350" y1="400" x2="180" y2="260" stroke="#F7F3E8" stroke-width="2"/>
+    <line x1="350" y1="400" x2="640" y2="20" stroke="#F7F3E8" stroke-width="2"/>
+    <line x1="350" y1="400" x2="60" y2="20" stroke="#F7F3E8" stroke-width="2"/>
+    <rect x="343" y="393" width="14" height="14" fill="#F7F3E8" transform="rotate(45 350 400)"/>
+    <rect x="513" y="253" width="14" height="14" fill="#F7F3E8"/>
+    <rect x="343" y="123" width="14" height="14" fill="#F7F3E8"/>
+    <rect x="173" y="253" width="14" height="14" fill="#F7F3E8"/>
+    <circle cx="350" cy="270" r="14" fill="#B4794C" stroke="#8f5f39" stroke-width="2"/>
+    ${runnerDots}
+    ${markers}
+    ${throwLine}
+    ${ballAnim}
+  </svg>`;
+}
+
+/* ============================================================
+   TAB SWITCHING
+   ============================================================ */
 function showPanel(name){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
   document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
 }
-document.querySelectorAll('nav.tabs button').forEach(b=>{
-  b.addEventListener('click', ()=>showPanel(b.dataset.panel));
-});
+document.querySelectorAll('nav.tabs button').forEach(b=> b.addEventListener('click', ()=>showPanel(b.dataset.panel)) );
 
-/* ===================== FIELD SVG <-> LEARN ===================== */
-function highlightField(id){
-  document.querySelectorAll('.pos').forEach(g=>g.classList.toggle('active', g.dataset.id==String(id)));
-}
-document.querySelectorAll('.pos').forEach(g=>{
-  g.addEventListener('click', ()=>{ selectPosition(g.dataset.id); showPanel('learn'); window.scrollTo({top:document.getElementById('panel-learn').offsetTop-20, behavior:'smooth'}); });
-});
-
+/* ============================================================
+   POSITIONS TAB CONTENT
+   ============================================================ */
+const POSITION_BLURBS = {
+  P:"Fields comebackers and bunts, covers 1st on anything to the right side, backs up 3rd and home.",
+  C:"Controls the running game, blocks pitches in the dirt, fields bunts near the plate, covers home on every play there.",
+  '1B':"Holds the runner on, covers 1st on nearly every ground ball, charges bunts down the line.",
+  '2B':"Turns double plays from both directions, covers 2nd on steals, cuts throws from center/right field.",
+  '3B':"Guards the line late in close games, charges bunts hard, is central to 1st-and-3rd defense.",
+  SS:"Turns double plays, shares 2nd base coverage with 2B, is the primary relay man from left field.",
+  LF:"Backs up 3rd base, hits the cutoff man on throws home, covers the line and the gap.",
+  CF:"Captain of the outfield, covers the most ground, backs up 2nd base on steals and pickoffs.",
+  RF:"Backs up 1st base on nearly every infield play, hits the cutoff on throws to 3rd and home."
+};
 const learnGrid = document.getElementById('learnGrid');
-POSITIONS.forEach(p=>{
+POS_LIST.forEach(p=>{
   const card = document.createElement('div');
-  card.className='posCard';
-  card.dataset.id=p.id;
-  card.innerHTML = `<div class="num">POS ${p.id}</div><h3>${p.abbr} — ${p.name}</h3><p>${p.blurb}</p>`;
-  card.addEventListener('click', ()=>selectPosition(p.id));
+  card.className = 'posCard';
+  card.innerHTML = `<div class="num">${p}</div><h3>${p}</h3><p>${POSITION_BLURBS[p]}</p>`;
   learnGrid.appendChild(card);
 });
 
-function selectPosition(id){
-  id = String(id);
-  const p = POSITIONS.find(x=>String(x.id)===id);
-  if(!p) return;
-  highlightField(id);
-  document.querySelectorAll('.posCard').forEach(c=>c.classList.toggle('active', c.dataset.id===id));
-  document.getElementById('learnDetailName').textContent = p.abbr+" — "+p.name;
-  document.getElementById('learnDetailBase').textContent = p.blurb;
-  const tbody = document.querySelector('#learnDetailTable tbody');
-  tbody.innerHTML = '<tr><th>Situation</th><th>Adjustment</th></tr>' +
-    p.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+/* ============================================================
+   EXPLORER TAB
+   ============================================================ */
+function fillSelect(id, items, labelFn, valueFn){
+  const el = document.getElementById(id);
+  el.innerHTML = items.map(it => `<option value="${valueFn(it)}">${labelFn(it)}</option>`).join('');
 }
-selectPosition(1);
+fillSelect('ctrlOuts', OUTS, o=>o+(o===1?' out':' outs'), o=>o);
+fillSelect('ctrlRunners', RUNNER_STATES, r=>r.label, r=>r.id);
+fillSelect('ctrlLoc', HIT_LOCATIONS, l=>l.label, l=>l.id);
+fillSelect('ctrlBallType', BALL_TYPES, b=>b.label, b=>b.id);
+fillSelect('ctrlContext', CONTEXTS, c=>c.label, c=>c.id);
+fillSelect('ctrlSpeed', SPEEDS, s=>s.label, s=>s.id);
 
-/* ===================== QUIZ LOGIC ===================== */
-let quizLevel = 'rookie';
-let quizPool = [];
-let quizIndex = 0;
-let score = 0;
-let answered = 0;
+function readExplorerControls(){
+  return {
+    outs: Number(document.getElementById('ctrlOuts').value),
+    runnersId: document.getElementById('ctrlRunners').value,
+    locId: document.getElementById('ctrlLoc').value,
+    ballType: document.getElementById('ctrlBallType').value,
+    context: document.getElementById('ctrlContext').value,
+    speed: document.getElementById('ctrlSpeed').value
+  };
+}
+function writeExplorerControls(sit){
+  document.getElementById('ctrlOuts').value = sit.outs;
+  document.getElementById('ctrlRunners').value = sit.runnersId;
+  document.getElementById('ctrlLoc').value = sit.locId;
+  document.getElementById('ctrlBallType').value = sit.ballType;
+  document.getElementById('ctrlContext').value = sit.context;
+  document.getElementById('ctrlSpeed').value = sit.speed;
+}
+function renderExplorer(){
+  const sit = readExplorerControls();
+  document.getElementById('schematicBox').innerHTML = buildSchematic(sit) +
+    `<div class="playSummary">${situationTagsHtml(sit)}<br><br><b>Primary play:</b> ${computePlay(sit.outs, RUNNER_STATES.find(r=>r.id===sit.runnersId).bases, sit.locId, sit.ballType, sit.context).description}<br><b>Speed factor:</b> ${speedNote(sit.speed)}</div>`;
+  const tbody = document.querySelector('#respTable tbody');
+  const loc = HIT_LOCATIONS.find(l=>l.id===sit.locId);
+  tbody.innerHTML = POS_LIST.map(p=>{
+    const isPrimary = loc.primary === p;
+    return `<tr class="${isPrimary?'primaryRow':''}"><td><span class="posTag">${p}</span></td><td>${getPositionResponsibility(p, sit)}</td></tr>`;
+  }).join('');
+}
+function randomizeExplorer(){ writeExplorerControls(randomSituation()); renderExplorer(); }
+randomizeExplorer();
 
-document.getElementById('levelPicker').addEventListener('click', e=>{
-  const btn = e.target.closest('button');
-  if(!btn) return;
-  document.querySelectorAll('#levelPicker button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  quizLevel = btn.dataset.level;
-  startQuiz();
-});
+/* ============================================================
+   QUIZ: BY POSITION
+   ============================================================ */
+fillSelect('qposPosition', POS_LIST, p=>p, p=>p);
+let posQuiz = { position:'SS', pool:[], index:0, score:0, answered:0 };
 
-function shuffle(arr){
-  const a = arr.slice();
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
+function startPosQuiz(){
+  posQuiz.position = document.getElementById('qposPosition').value;
+  posQuiz.pool = Array.from({length:10}, randomSituation);
+  posQuiz.index = 0; posQuiz.score = 0; posQuiz.answered = 0;
+  document.getElementById('posScoreVal').textContent = 0;
+  document.getElementById('posScoreTotal').textContent = 0;
+  renderPosQuestion();
+}
+function renderPosQuestion(){
+  const sit = posQuiz.pool[posQuiz.index];
+  document.getElementById('posSituationTags').innerHTML = situationTagsHtml(sit);
+  document.getElementById('posQText').textContent = `What's the ${posQuiz.position}'s job here?`;
+  document.getElementById('posProgress').textContent = `Situation ${posQuiz.index+1} of ${posQuiz.pool.length}`;
+  document.getElementById('posExplain').classList.remove('show');
+  document.getElementById('posNextBtn').style.display = 'none';
+
+  const correct = getPositionResponsibility(posQuiz.position, sit);
+  const distractors = new Set();
+  while(distractors.size < 3){
+    const other = randomSituation();
+    const d = getPositionResponsibility(posQuiz.position, other);
+    if(d !== correct) distractors.add(d);
   }
-  return a;
-}
-
-function startQuiz(){
-  quizPool = shuffle(QUIZ.filter(q=>q.level===quizLevel));
-  quizIndex = 0; score = 0; answered = 0;
-  document.getElementById('scoreVal').textContent = score;
-  document.getElementById('scoreTotal').textContent = answered;
-  document.getElementById('quizTagCount').textContent = quizPool.length + ' questions';
-  renderQuestion();
-}
-
-function renderQuestion(){
-  const q = quizPool[quizIndex];
-  document.getElementById('qSituation').textContent = q.situation;
-  document.getElementById('qText').textContent = q.q;
-  document.getElementById('qProgress').textContent = 'Situation ' + (quizIndex+1) + ' of ' + quizPool.length;
-  const optWrap = document.getElementById('qOptions');
-  optWrap.innerHTML='';
-  document.getElementById('qExplain').classList.remove('show');
-  document.getElementById('nextBtn').style.display='none';
-  q.options.forEach((opt,i)=>{
+  const options = shuffle([correct, ...distractors]);
+  const optWrap = document.getElementById('posOptions');
+  optWrap.innerHTML = '';
+  options.forEach(opt=>{
     const b = document.createElement('button');
-    b.className='opt';
-    b.textContent = opt;
-    b.addEventListener('click', ()=>selectAnswer(i));
+    b.className='opt'; b.textContent = opt;
+    b.addEventListener('click', ()=>selectPosAnswer(opt, correct));
     optWrap.appendChild(b);
   });
 }
-
-function selectAnswer(i){
-  const q = quizPool[quizIndex];
-  const opts = document.querySelectorAll('.opt');
-  opts.forEach(o=>o.disabled=true);
-  opts[q.correct].classList.add('correct');
-  if(i!==q.correct) opts[i].classList.add('wrong');
-  else { score++; }
-  answered++;
-  document.getElementById('scoreVal').textContent = score;
-  document.getElementById('scoreTotal').textContent = answered;
-  document.getElementById('qExplain').textContent = q.explain;
-  document.getElementById('qExplain').classList.add('show');
-  document.getElementById('nextBtn').style.display = (quizIndex < quizPool.length-1) ? 'inline-block' : 'none';
-  if(quizIndex >= quizPool.length-1){
-    const done = document.createElement('div');
-    done.style.marginTop='14px';
-    done.style.fontFamily="'IBM Plex Mono',monospace";
-    done.style.fontSize='13px';
-    done.textContent = "That's the full set — pick a level above to play again, or try a harder one.";
-    document.getElementById('qExplain').appendChild(document.createElement('br'));
-    document.getElementById('qExplain').appendChild(done);
-  }
-}
-
-function nextQuestion(){
-  quizIndex++;
-  renderQuestion();
-}
-
-startQuiz();
-
-/* ===================== FLASHCARDS ===================== */
-let fcIndex = 0;
-let fcDeck = [];
-
-function buildDeck(){
-  fcDeck = [];
-  POSITIONS.forEach(p=>{
-    p.rows.forEach(r=>{
-      fcDeck.push({front: p.abbr + " — " + r[0], back: r[1]});
-    });
+function selectPosAnswer(chosen, correct){
+  document.querySelectorAll('#posOptions .opt').forEach(o=>{
+    o.disabled = true;
+    if(o.textContent === correct) o.classList.add('correct');
+    else if(o.textContent === chosen) o.classList.add('wrong');
   });
-  fcDeck = shuffle(fcDeck);
+  posQuiz.answered++;
+  if(chosen === correct) posQuiz.score++;
+  document.getElementById('posScoreVal').textContent = posQuiz.score;
+  document.getElementById('posScoreTotal').textContent = posQuiz.answered;
+  document.getElementById('posExplain').textContent = "Correct answer: " + correct;
+  document.getElementById('posExplain').classList.add('show');
+  document.getElementById('posNextBtn').style.display = (posQuiz.index < posQuiz.pool.length-1) ? 'inline-block' : 'none';
 }
-buildDeck();
+function nextPosQuestion(){ posQuiz.index++; renderPosQuestion(); }
 
-function renderCard(){
-  const c = fcDeck[fcIndex];
-  document.getElementById('fcFrontText').textContent = c.front;
-  document.getElementById('fcBackText').textContent = c.back;
-  document.getElementById('fcCount').textContent = (fcIndex+1) + ' / ' + fcDeck.length;
-  document.getElementById('fcCard').classList.remove('flipped');
+/* ============================================================
+   QUIZ: BY SITUATION
+   ============================================================ */
+let sitQuiz = { pool:[], index:0, score:0, answered:0 };
+function startSitQuiz(){
+  sitQuiz.pool = Array.from({length:10}, randomSituation);
+  sitQuiz.index = 0; sitQuiz.score = 0; sitQuiz.answered = 0;
+  document.getElementById('sitScoreVal').textContent = 0;
+  document.getElementById('sitScoreTotal').textContent = 0;
+  document.getElementById('sitStartBtn').style.display = 'none';
+  renderSitQuestion();
 }
-function flipCard(){ document.getElementById('fcCard').classList.toggle('flipped'); }
-function nextCard(){ fcIndex = (fcIndex+1) % fcDeck.length; renderCard(); }
-function prevCard(){ fcIndex = (fcIndex-1+fcDeck.length) % fcDeck.length; renderCard(); }
-renderCard();
+function renderSitQuestion(){
+  const sit = sitQuiz.pool[sitQuiz.index];
+  document.getElementById('sitSituationTags').innerHTML = situationTagsHtml(sit);
+  document.getElementById('sitProgress').textContent = `Situation ${sitQuiz.index+1} of ${sitQuiz.pool.length}`;
+  document.getElementById('sitExplain').classList.remove('show');
+  document.getElementById('sitNextBtn').style.display = 'none';
+
+  const bases = RUNNER_STATES.find(r=>r.id===sit.runnersId).bases;
+  const loc = HIT_LOCATIONS.find(l=>l.id===sit.locId);
+  const play = computePlay(sit.outs, bases, sit.locId, sit.ballType, sit.context);
+  const inDepth = getInfieldDepth(sit.outs, bases, sit.context);
+  const ofDepth = getOutfieldDepth(sit.outs, bases, sit.context);
+
+  const qType = ['fielder','throw','infield','outfield'][Math.floor(Math.random()*4)];
+  let qText, correct, options, explain;
+
+  if(qType === 'fielder'){
+    qText = "Which position fields this ball?";
+    correct = loc.primary;
+    const others = shuffle(POS_LIST.filter(p=>p!==correct)).slice(0,3);
+    options = shuffle([correct, ...others]);
+    explain = `The ball is hit to ${loc.label.toLowerCase()}, so the ${correct} fields it.`;
+  } else if(qType === 'throw'){
+    qText = "Where does the primary throw/play go?";
+    const all = ['Home','1st base','2nd base','3rd base','Catch for the out','Cutoff man'];
+    correct = play.targetLabel;
+    const others = shuffle(all.filter(x=>x!==correct)).slice(0,3);
+    options = shuffle([correct, ...others]);
+    explain = play.description;
+  } else if(qType === 'infield'){
+    qText = "How should the infield be playing?";
+    const all = ['In','Halfway / Back','Double-play depth','Normal'];
+    correct = inDepth;
+    const others = shuffle(all.filter(x=>x!==correct)).slice(0,3);
+    options = shuffle([correct, ...others]);
+    explain = `With this many outs, these runners, and this game context, infield depth should be: ${correct}.`;
+  } else {
+    qText = "How should the outfield be playing?";
+    const all = ['Shallow / no-doubles','Can play deeper','Normal'];
+    correct = ofDepth;
+    options = shuffle(all);
+    explain = `Given the runners, outs, and game context, outfield depth should be: ${correct}.`;
+  }
+
+  document.getElementById('sitQText').textContent = qText;
+  const optWrap = document.getElementById('sitOptions');
+  optWrap.innerHTML = '';
+  options.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt'; b.textContent = opt;
+    b.addEventListener('click', ()=>selectSitAnswer(opt, correct, explain));
+    optWrap.appendChild(b);
+  });
+}
+function selectSitAnswer(chosen, correct, explain){
+  document.querySelectorAll('#sitOptions .opt').forEach(o=>{
+    o.disabled = true;
+    if(o.textContent === correct) o.classList.add('correct');
+    else if(o.textContent === chosen) o.classList.add('wrong');
+  });
+  sitQuiz.answered++;
+  if(chosen === correct) sitQuiz.score++;
+  document.getElementById('sitScoreVal').textContent = sitQuiz.score;
+  document.getElementById('sitScoreTotal').textContent = sitQuiz.answered;
+  document.getElementById('sitExplain').textContent = explain;
+  document.getElementById('sitExplain').classList.add('show');
+  document.getElementById('sitNextBtn').style.display = (sitQuiz.index < sitQuiz.pool.length-1) ? 'inline-block' : 'none';
+}
+function nextSitQuestion(){ sitQuiz.index++; renderSitQuestion(); }
+
+/* ============================================================
+   UTIL
+   ============================================================ */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
 </script>
 </body>
 </html>
